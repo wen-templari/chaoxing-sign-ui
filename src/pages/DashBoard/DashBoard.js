@@ -1,6 +1,6 @@
 import { Alert, ButtonBase, CircularProgress, Snackbar } from '@mui/material'
 import { Box } from '@mui/system'
-import axios from 'axios'
+import axios from '../../utils/axios'
 import QrCode from "qrcode-reader"
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'

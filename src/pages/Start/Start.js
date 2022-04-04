@@ -1,6 +1,6 @@
 import { AddCircleOutlineOutlined } from '@mui/icons-material'
 import { Button, ButtonBase, Icon, Dialog, DialogTitle, DialogContent, DialogContentText, TextField, DialogActions, Snackbar, Alert } from '@mui/material'
-import axios from 'axios'
+import axios from '../../utils/axios'
 import React, { createRef, useEffect, useRef, useState } from 'react'
 import UserCard from '../../components/UserCard/UserCard'
 import { login_api } from '../../config/api'
