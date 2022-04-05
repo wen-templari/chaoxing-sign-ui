@@ -1,8 +1,9 @@
-import { Button, ButtonBase, Dialog, DialogTitle, DialogContent, DialogContentText, TextField, DialogActions } from '@mui/material';
+import { Button, ButtonBase, Dialog, DialogTitle, DialogContent, TextField, DialogActions } from '@mui/material';
 import { useNavigate, Outlet } from 'react-router-dom';
 import React from 'react';
 import './App.css';
 import SettingsIcon from '@mui/icons-material/Settings';
+import axios from "../src/utils/axios";
 function App() {
   const [open, setOpen] = React.useState(false);
   const [baseURL, setBaseURL] = React.useState("")
@@ -15,6 +16,7 @@ function App() {
 
   const handleClose = () => {
     localStorage.setItem('baseUrl', baseURL)
+    axios.defaults.baseURL = baseURL
     setOpen(false);
   };
   const navigate = useNavigate()
@@ -27,16 +29,11 @@ function App() {
           height: '40px',
           width: '40px',
           borderColor: 'primary.main',
-
         }}></ButtonBase>
-        <SettingsIcon onClick={handleClickOpen} className="settingButton" sx={{ fontSize: 40 }} color="action" ></SettingsIcon>
-        {/* <ButtonBase onClick={handleClickOpen} >设置</ButtonBase> */}
+        <SettingsIcon onClick={handleClickOpen} className="settingButton" sx={{ fontSize: 44 }} color="action" ></SettingsIcon>
         <Dialog fullWidth={true} open={open} onClose={() => { setOpen(false) }}>
           <DialogTitle>设置</DialogTitle>
           <DialogContent>
-            <DialogContentText>
-              设置完成后请刷新页面
-            </DialogContentText>
             <TextField
               margin="dense"
               id="baseURLInput"
